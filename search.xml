@@ -8,9 +8,15 @@
       <link href="/2019/08/06/git%E5%9F%BA%E7%A1%80/"/>
       <url>/2019/08/06/git%E5%9F%BA%E7%A1%80/</url>
       
-        <content type="html"><![CDATA[<a id="more"></a><ol><li><p>查看文件版本库中的文件状态：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure><p>文件处于未修改状态</p></li><li><p>修改文件，再次查看版本库中文件的状态</p></li><li><p>对比文件修改前和修改后的变化：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure><p>根据提示，我们能看到，文本的修改为添加了一行，即文字开头有加号的地方。如果删除一行，文字开头为减号。 </p></li><li><p>提交修改内容与提交新文件是一样的两步</p></li><li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add 文件名</span><br><span class="line">git commit -m "add a line"</span><br></pre></td></tr></table></figure></li><li><p>提交后，再次查看版本库当前状态，会看到文件没有需要提交的更改。 </p></li><li><p>撤销操作<br>有时提交完成后发现漏掉几个文件没有添加，或者信息写错了，这时候就需要对操作进行撤销。</p></li><li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br><span class="line"><span class="meta">#</span>## 例子</span><br><span class="line">git commit -m 'xxxxx'</span><br><span class="line">git add file</span><br><span class="line">git commit --amend</span><br></pre></td></tr></table></figure></li><li><p>撤销对文件的修改<br>如果不想保留对某一个文件的修改，则可以使用<code>git checkout -- filename</code>来撤销对文件的修改。但是这个命令只是拷贝了另一个文件来覆盖它，文件的所有更改都将消失。</p></li></ol><p>来源：<a href="https://blog.csdn.net/yidu_fanchen/article/details/78663359" target="_blank" rel="noopener">https://blog.csdn.net/yidu_fanchen/article/details/78663359</a></p>]]></content>
+        <content type="html"><![CDATA[<a id="more"></a><h2 id="查看文件版本库中的文件状态："><a href="#查看文件版本库中的文件状态：" class="headerlink" title="查看文件版本库中的文件状态："></a>查看文件版本库中的文件状态：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure><p>文件处于未修改状态</p><h2 id="修改文件，再次查看版本库中文件的状态"><a href="#修改文件，再次查看版本库中文件的状态" class="headerlink" title="修改文件，再次查看版本库中文件的状态"></a>修改文件，再次查看版本库中文件的状态</h2><p>对比文件修改前和修改后的变化：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure><p>根据提示，我们能看到，文本的修改为添加了一行，即文字开头有加号的地方。如果删除一行，文字开头为减号。 </p><h2 id="提交修改内容与提交新文件"><a href="#提交修改内容与提交新文件" class="headerlink" title="提交修改内容与提交新文件"></a>提交修改内容与提交新文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add 文件名</span><br><span class="line">git commit -m "add a line"</span><br></pre></td></tr></table></figure><h2 id="再次查看"><a href="#再次查看" class="headerlink" title="再次查看"></a>再次查看</h2><p>提交后，再次查看版本库当前状态，会看到文件没有需要提交的更改。 </p><h2 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h2><p>有时提交完成后发现漏掉几个文件没有添加，或者信息写错了，这时候就需要对操作进行撤销。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br><span class="line"><span class="meta">#</span>## 例子</span><br><span class="line">git commit -m 'xxxxx'</span><br><span class="line">git add file</span><br><span class="line">git commit --amend</span><br></pre></td></tr></table></figure><ul><li>撤销对文件的修改 </li></ul><p>如果不想保留对某一个文件的修改，则可以使用<code>git checkout -- filename</code>来撤销对文件的修改。但是这个命令只是拷贝了另一个文件来覆盖它，文件的所有更改都将消失。</p><p>来源：<a href="https://blog.csdn.net/yidu_fanchen/article/details/78663359" target="_blank" rel="noopener">https://blog.csdn.net/yidu_fanchen/article/details/78663359</a></p>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
       
     </entry>
     
@@ -27,11 +33,11 @@
       
         <tags>
             
+            <tag> git </tag>
+            
             <tag> hexo </tag>
             
             <tag> deploy </tag>
-            
-            <tag> git </tag>
             
         </tags>
       
