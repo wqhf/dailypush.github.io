@@ -3,22 +3,23 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>archives: 2019/8 | </title>
+  <title>git基础代码 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
   
-  <meta name="description" content="I like the world and I like my friends">
-<meta property="og:type" content="website">
-<meta property="og:title">
-<meta property="og:url" content="http://yuwq.pw/archives/2019/08/index.html">
+  <meta name="description" content="查看文件版本库中的文件状态： 1git status  文件处于未修改状态  修改文件，再次查看版本库中文件的状态  对比文件修改前和修改后的变化： 1git diff  根据提示，我们能看到，文本的修改为添加了一行，即文字开头有加号的地方。如果删除一行，文字开头为减号。   提交修改内容与提交新文件是一样的两步  12git add 文件名git commit -m &quot;add a li">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git基础代码">
+<meta property="og:url" content="http://yuwq.pw/2019/08/06/git基础/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="I like the world and I like my friends">
+<meta property="og:description" content="查看文件版本库中的文件状态： 1git status  文件处于未修改状态  修改文件，再次查看版本库中文件的状态  对比文件修改前和修改后的变化： 1git diff  根据提示，我们能看到，文本的修改为添加了一行，即文字开头有加号的地方。如果删除一行，文字开头为减号。   提交修改内容与提交新文件是一样的两步  12git add 文件名git commit -m &quot;add a li">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-08-06T03:34:14.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title">
-<meta name="twitter:description" content="I like the world and I like my friends">
+<meta name="twitter:title" content="git基础代码">
+<meta name="twitter:description" content="查看文件版本库中的文件状态： 1git status  文件处于未修改状态  修改文件，再次查看版本库中文件的状态  对比文件修改前和修改后的变化： 1git diff  根据提示，我们能看到，文本的修改为添加了一行，即文字开头有加号的地方。如果删除一行，文字开头为减号。   提交修改内容与提交新文件是一样的两步  12git add 文件名git commit -m &quot;add a li">
   
     <link rel="alternate" href="/atom.xml" title type="application/atom+xml">
   
@@ -59,8 +60,6 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css">
-  
   
   
 
@@ -68,7 +67,7 @@
 </html>
 
 
-  <body>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
 
 
   
@@ -158,211 +157,104 @@
             
       <div id="content" class="outer">
         
-          <section id="main">
-  <div class="archives-tags-wrap"><blockquote><span>There are 4 posts in total till now.</span></blockquote>
+          <section id="main" style="float:none;"><article id="post-git基础" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      git基础代码
+    </h1>
+  
 
-
-<!-- 分页显示 -->
-
-	
-	
-		
-		
-		  
-		  
-		  <section class="archives-wrap">
-		    <div class="archive-year-wrap">
-		      <h1><a href="/archives/2019" class="archive-year">2019</a></h1>
-		    </div>
-		    <div class="archives">
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+      </header>
+    
+    <div class="article-meta">
       
-	<a href="/2019/08/06/git基础/" class="archive-article-date">
+	<a href="/2019/08/06/git基础/" class="article-date">
 	  <time datetime="2019-08-06T03:29:09.000Z" itemprop="datePublished">2019-08-06</time>
 	</a>
 
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2019/08/06/git基础/">git基础代码</a>
-    </h1>
-  
+      
+      
 
-    </header>
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+
+
+<ol>
+<li><p>查看文件版本库中的文件状态：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p>文件处于未修改状态</p>
+</li>
+<li><p>修改文件，再次查看版本库中文件的状态</p>
+</li>
+<li><p>对比文件修改前和修改后的变化：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure>
+
+<p>根据提示，我们能看到，文本的修改为添加了一行，即文字开头有加号的地方。如果删除一行，文字开头为减号。 </p>
+</li>
+<li><p>提交修改内容与提交新文件是一样的两步</p>
+</li>
+<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add 文件名</span><br><span class="line">git commit -m "add a line"</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提交后，再次查看版本库当前状态，会看到文件没有需要提交的更改。 </p>
+</li>
+<li><p>撤销操作<br>有时提交完成后发现漏掉几个文件没有添加，或者信息写错了，这时候就需要对操作进行撤销。</p>
+</li>
+<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br><span class="line"><span class="meta">#</span>## 例子</span><br><span class="line">git commit -m 'xxxxx'</span><br><span class="line">git add file</span><br><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>撤销对文件的修改<br>如果不想保留对某一个文件的修改，则可以使用<code>git checkout -- filename</code>来撤销对文件的修改。但是这个命令只是拷贝了另一个文件来覆盖它，文件的所有更改都将消失。</p>
+</li>
+</ol>
+<p>来源：<a href="https://blog.csdn.net/yidu_fanchen/article/details/78663359" target="_blank" rel="noopener">https://blog.csdn.net/yidu_fanchen/article/details/78663359</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+        
+      
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/06/部署/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hexo部署到github</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2019/08/06/部署/" class="archive-article-date">
-	  <time datetime="2019-08-06T02:58:15.000Z" itemprop="datePublished">2019-08-06</time>
-	</a>
 
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2019/08/06/部署/">hexo部署到github</a>
-    </h1>
-  
+<!-- Table of Contents -->
 
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2019/08/06/mutational signatures的构建/" class="archive-article-date">
-	  <time datetime="2019-08-06T00:01:23.000Z" itemprop="datePublished">2019-08-06</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2019/08/06/mutational signatures的构建/">两种方法构建signatures（一）</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2019/08/05/hello-world/" class="archive-article-date">
-	  <time datetime="2019-08-05T08:58:01.468Z" itemprop="datePublished">2019-08-05</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2019/08/05/hello-world/">Hello World</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-	
-		</div></section>
-	
-
-	<!-- 页数指示器 -->
-	
-
-
-
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav">None</ol>
+    
+    </div>
+  </aside>
 
 </section>
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Connect</h3>
-    <div class="widget widget_athemes_social_icons">
-
-    	<ul class="clearfix widget-social-icons">   
-    	
-          
-            <li><a href="mailto:yuwq.hf@gmail.com?subject=请联系我&body=我能帮你什么" title="email"><i class="fa fa-envelope" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-     			  <li><a href="https://github.com/wqhf" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
-          
-   		
-   		</ul>
-
-
-   		<!--
-   		<ul class="clearfix widget-social-icons">   		
-   		<li class="widget-si-twitter"><a href="http://twitter.com" title="Twitter"><i class="ico-twitter"></i></a></li> 
-		<li class="widget-si-facebook"><a href="http://facebook.com" title="Facebook"><i class="ico-facebook"></i></a></li>
-			<li class="widget-si-gplus"><a href="http://plus.google.com" title="Google+"><i class="ico-gplus"></i></a></li>
-			<li class="widget-si-pinterest"><a href="http://pinterest.com" title="Pinterest"><i class="ico-pinterest"></i></a></li>
-			<li class="widget-si-flickr"><a href="http://flickr.com" title="Flickr"><i class="ico-flickr"></i></a></li>
-			<li class="widget-si-instagram"><a href="http://instagram.com" title="Instagram"><i class="ico-instagram"></i></a></li>
-		</ul> -->
-
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Cancer-genome/">Cancer genome</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Cancer-genome/Mutational-Signatures/">Mutational Signatures</a><span class="category-list-count">1</span></li></ul></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mutational-Signatures/">Mutational Signatures</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NMF/">NMF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deploy/">deploy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tumor/">tumor</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/08/06/git基础/">git基础代码</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/06/部署/">hexo部署到github</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/06/mutational signatures的构建/">两种方法构建signatures（一）</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/05/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
         
       </div>
       
@@ -455,6 +347,8 @@
 
 
 
+  <script src="/js/dialog.js"></script>
+
 
 
 
@@ -535,6 +429,8 @@
   
   <a id="rocket" href="#top" class=""></a>
   <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
   
 </body>
 </html>
