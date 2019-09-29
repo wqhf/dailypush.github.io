@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="日拱一卒">
 <meta property="og:description" content="virtualenv可创建一套“隔离”的Python运行环境，从而避免不同版本包的干扰。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-29T02:53:43.268Z">
+<meta property="og:updated_time" content="2019-09-29T08:50:30.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建python虚拟环境">
 <meta name="twitter:description" content="virtualenv可创建一套“隔离”的Python运行环境，从而避免不同版本包的干扰。">
@@ -258,7 +258,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-29 10:53:43" itemprop="dateModified" datetime="2019-09-29T10:53:43+08:00">2019-09-29</time>
+                <time title="修改时间：2019-09-29 16:50:30" itemprop="dateModified" datetime="2019-09-29T16:50:30+08:00">2019-09-29</time>
               </span>
             
           
@@ -290,15 +290,15 @@
         <p>virtualenv可创建一套“隔离”的Python运行环境，从而避免不同版本包的干扰。</p>
 <a id="more"></a>
 
-<h1 id="pip安装virtualenv"><a href="#pip安装virtualenv" class="headerlink" title="pip安装virtualenv"></a>pip安装virtualenv</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure>
+<h3 id="pip安装virtualenv"><a href="#pip安装virtualenv" class="headerlink" title="pip安装virtualenv"></a>pip安装virtualenv</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure>
 
-<h1 id="创建独立python运行环境"><a href="#创建独立python运行环境" class="headerlink" title="创建独立python运行环境"></a>创建独立python运行环境</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建目录</span></span><br><span class="line">mkdir project_A</span><br><span class="line">cd project_A</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建独立的python运行环境</span></span><br><span class="line">virtualenv --no-site-packages venv</span><br></pre></td></tr></table></figure>
+<h3 id="创建独立python运行环境"><a href="#创建独立python运行环境" class="headerlink" title="创建独立python运行环境"></a>创建独立python运行环境</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建目录</span></span><br><span class="line">mkdir project_A</span><br><span class="line">cd project_A</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建独立的python运行环境</span></span><br><span class="line">virtualenv --no-site-packages venv</span><br></pre></td></tr></table></figure>
 
-<h1 id="进入虚拟环境"><a href="#进入虚拟环境" class="headerlink" title="进入虚拟环境"></a>进入虚拟环境</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source venv/bin/activate</span><br></pre></td></tr></table></figure>
+<h3 id="进入虚拟环境"><a href="#进入虚拟环境" class="headerlink" title="进入虚拟环境"></a>进入虚拟环境</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source venv/bin/activate</span><br></pre></td></tr></table></figure>
 
-<h1 id="在虚拟环境下安装第三方包"><a href="#在虚拟环境下安装第三方包" class="headerlink" title="在虚拟环境下安装第三方包"></a>在虚拟环境下安装第三方包</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install numpy</span><br></pre></td></tr></table></figure>
+<h3 id="在虚拟环境下安装第三方包"><a href="#在虚拟环境下安装第三方包" class="headerlink" title="在虚拟环境下安装第三方包"></a>在虚拟环境下安装第三方包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install numpy</span><br></pre></td></tr></table></figure>
 
-<h1 id="关闭虚拟环境"><a href="#关闭虚拟环境" class="headerlink" title="关闭虚拟环境"></a>关闭虚拟环境</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+<h3 id="关闭虚拟环境"><a href="#关闭虚拟环境" class="headerlink" title="关闭虚拟环境"></a>关闭虚拟环境</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -325,7 +325,7 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/post/download-TCGA-from-GDC/" rel="next" title="download_TCGA_from_GDC">
+                <a href="/post/肿瘤 download-TCGA-from-GDC/" rel="next" title="download_TCGA_from_GDC">
                   <i class="fa fa-chevron-left"></i> download_TCGA_from_GDC
                 </a>
               
@@ -386,7 +386,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pip安装virtualenv"><span class="nav-number">1.</span> <span class="nav-text">pip安装virtualenv</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建独立python运行环境"><span class="nav-number">2.</span> <span class="nav-text">创建独立python运行环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进入虚拟环境"><span class="nav-number">3.</span> <span class="nav-text">进入虚拟环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在虚拟环境下安装第三方包"><span class="nav-number">4.</span> <span class="nav-text">在虚拟环境下安装第三方包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关闭虚拟环境"><span class="nav-number">5.</span> <span class="nav-text">关闭虚拟环境</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#pip安装virtualenv"><span class="nav-number">1.</span> <span class="nav-text">pip安装virtualenv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建独立python运行环境"><span class="nav-number">2.</span> <span class="nav-text">创建独立python运行环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入虚拟环境"><span class="nav-number">3.</span> <span class="nav-text">进入虚拟环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在虚拟环境下安装第三方包"><span class="nav-number">4.</span> <span class="nav-text">在虚拟环境下安装第三方包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭虚拟环境"><span class="nav-number">5.</span> <span class="nav-text">关闭虚拟环境</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -401,7 +401,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

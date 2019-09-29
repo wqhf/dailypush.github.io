@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="日拱一卒">
 <meta property="og:description" content="以安装生存分析包survminer为例，了解R包的一般安装流程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-29T02:53:43.207Z">
+<meta property="og:updated_time" content="2019-09-29T08:48:42.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设置仓库镜像和安装R包">
 <meta name="twitter:description" content="以安装生存分析包survminer为例，了解R包的一般安装流程。">
@@ -258,7 +258,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-29 10:53:43" itemprop="dateModified" datetime="2019-09-29T10:53:43+08:00">2019-09-29</time>
+                <time title="修改时间：2019-09-29 16:48:42" itemprop="dateModified" datetime="2019-09-29T16:48:42+08:00">2019-09-29</time>
               </span>
             
           
@@ -310,6 +310,8 @@
 
 <h3 id="其他R包相关操作："><a href="#其他R包相关操作：" class="headerlink" title="其他R包相关操作："></a>其他R包相关操作：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前镜像地址</span></span><br><span class="line">getOption(<span class="string">"repos"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看R_HOME地址</span></span><br><span class="line">R.home()</span><br><span class="line"></span><br><span class="line">R_HOME/doc/CRAN_mirrors.csv</span><br><span class="line">R_HOME/doc/BioC_mirrors.csv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看R包安装位置</span></span><br><span class="line">.libPaths()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看已安装的包</span></span><br><span class="line">installed.packages()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看包版本</span></span><br><span class="line">packageVersion(<span class="string">"package_name"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">update.packages(<span class="string">"package_name"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载包</span></span><br><span class="line">library(<span class="string">"package_name"</span>)</span><br><span class="line">require(<span class="string">"package_name"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看加载的包</span></span><br><span class="line">.packages()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移除已加载的包（将包从R运行环境中移除）</span></span><br><span class="line">detach(<span class="string">"package_name"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 彻底删除已安装的包：</span></span><br><span class="line">remove.packages(<span class="string">"package_name"</span>, lib = file.path(<span class="string">"path/to/library"</span>))</span><br></pre></td></tr></table></figure>
 
+<h3 id="自动安装包"><a href="#自动安装包" class="headerlink" title="自动安装包"></a>自动安装包</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">usePackage &lt;- <span class="keyword">function</span>(p) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!is.element(p, installed.packages()[,<span class="number">1</span>]))&#123;</span><br><span class="line">    options(repos=structure(c(CRAN=<span class="string">"https://mirrors.tuna.tsinghua.edu.cn/CRAN/"</span>)))</span><br><span class="line">    install.packages(p, dep = <span class="literal">TRUE</span>)</span><br><span class="line">    <span class="keyword">require</span>(p, character.only = <span class="literal">TRUE</span>)&#125;</span><br><span class="line">&#125;</span><br><span class="line">usePackage(<span class="string">"ggplot2"</span>)</span><br></pre></td></tr></table></figure>
+
 <h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ul>
 <li><a href="https://www.jianshu.com/p/9e503a4e3563?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation" target="_blank" rel="noopener">https://www.jianshu.com/p/9e503a4e3563?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation</a></li>
 </ul>
@@ -350,7 +352,7 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/post/download-TCGA-from-GDC/" rel="prev" title="download_TCGA_from_GDC">
+                <a href="/post/肿瘤 download-TCGA-from-GDC/" rel="prev" title="download_TCGA_from_GDC">
                   download_TCGA_from_GDC <i class="fa fa-chevron-right"></i>
                 </a>
               
@@ -401,7 +403,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-repo-to-accelerate-downloading"><span class="nav-number">1.</span> <span class="nav-text">Set repo to accelerate downloading</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Installation-and-loading"><span class="nav-number">2.</span> <span class="nav-text">Installation and loading</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他R包相关操作："><span class="nav-number">3.</span> <span class="nav-text">其他R包相关操作：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考："><span class="nav-number">4.</span> <span class="nav-text">参考：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-repo-to-accelerate-downloading"><span class="nav-number">1.</span> <span class="nav-text">Set repo to accelerate downloading</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Installation-and-loading"><span class="nav-number">2.</span> <span class="nav-text">Installation and loading</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他R包相关操作："><span class="nav-number">3.</span> <span class="nav-text">其他R包相关操作：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动安装包"><span class="nav-number">4.</span> <span class="nav-text">自动安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考："><span class="nav-number">5.</span> <span class="nav-text">参考：</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -416,7 +418,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
