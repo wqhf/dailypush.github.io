@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2019/09/29/hello-world/"/>
+      <url>/2019/09/29/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>TCGA 生存信息</title>
+      <link href="/2019/08/22/TCGA-%E7%94%9F%E5%AD%98%E4%BF%A1%E6%81%AF/"/>
+      <url>/2019/08/22/TCGA-%E7%94%9F%E5%AD%98%E4%BF%A1%E6%81%AF/</url>
+      
+        <content type="html"><![CDATA[<p>overall survival (OS) 总生存期</p><p>recurrence free survival (RFS) 无复发生存期</p><a id="more"></a><h2 id="TCGA-STAD的表型基础信息统计"><a href="#TCGA-STAD的表型基础信息统计" class="headerlink" title="TCGA STAD的表型基础信息统计"></a>TCGA STAD的表型基础信息统计</h2><p>以胃癌的生存信息为例，一共有6列。</p><ul><li>sample：样本名称</li><li>X_EVENT： 1表示死亡，0表示审查中，null表示没有数据    </li><li>X_PATIENT：</li><li>X_TIME_TO_EVENT：</li><li>X_OS_IND：</li><li>X_OS：如果有死亡，相当于days to death；如果仍然存活，时间点为days_to_last_known_alive,和days_to_last_followup中较大值。</li></ul><ul><li>基本的生存信息统计：<ul><li>506个样本，来自于418个病例，其中170人已经死亡，剩余248人存活状态</li><li></li></ul></li></ul><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 从UCSC xena下载生存和表型数据</span></span><br><span class="line">survival &lt;- read.table(<span class="string">"../phenotype/TCGA-STAD.survival.tsv.gz"</span>,header = <span class="literal">T</span>, sep = <span class="string">"\t"</span>, quote = <span class="string">""</span>, fill = <span class="literal">T</span>)</span><br><span class="line">phe=read.table(<span class="string">'../phenotype/TCGA-STAD.GDC_phenotype.tsv.gz'</span>,header = <span class="literal">T</span>,sep = <span class="string">'\t'</span>,quote = <span class="string">""</span>,fill = <span class="literal">T</span>)</span><br><span class="line"></span><br><span class="line">dim(phe)</span><br><span class="line"><span class="comment">## [1] 544 137</span></span><br><span class="line">dim(survival)</span><br><span class="line"><span class="comment">## [1] 506   6</span></span><br><span class="line">length(unique(phe.filter$submitter_id.samples))</span><br><span class="line"><span class="comment">## [1] 506  </span></span><br><span class="line">phe.filter &lt;- phe[phe$submitter_id.samples %<span class="keyword">in</span>% survival$sample,]</span><br><span class="line"><span class="comment">## phe.filter中样本是一一对应的，两者都含有506个样本。</span></span><br><span class="line"><span class="comment">## phe多出来的一些样本是新提取的肿瘤来源的数据。</span></span><br><span class="line"><span class="comment">## 为什么要重新提取？可能是经过治疗后出现了新的肿瘤，重新采样</span></span><br><span class="line"><span class="comment">## （new_tumor_event_after_initial_treatment）</span></span><br><span class="line">dim(phe.filter)  </span><br><span class="line"><span class="comment">## [1] 506 137</span></span><br><span class="line"></span><br><span class="line">length(unique(survival$sample))</span><br><span class="line"><span class="comment">## 506</span></span><br><span class="line">length(unique(survival$X_PATIENT))</span><br><span class="line"><span class="comment">## 418</span></span><br><span class="line">tmp &lt;- unique(survival[,c(<span class="number">2</span>,<span class="number">3</span>)])</span><br><span class="line">table(tmp$X_EVENT)</span><br><span class="line"><span class="comment">##   0   1 </span></span><br><span class="line"><span class="comment">## 248 170</span></span><br></pre></td></tr></table></figure><p><img src="/_posts/images/1566463192358.png" alt></p><p>survival[survival$X_EVENT==survival$X_OS_IND,]</p><p>UCSC Cancer Browser team curate the overall survival (OS) and recurrence free survival (RFS) information from the TCGA clinical and phenotypic data.   </p><p><strong>Overall Survival (OS)</strong> The <em>event</em> call is derived from “<em>vital status”</em> parameter. The <em>time_to_event</em> is in days, equals to days_to_death if patient deceased; in the case of a patient is still living, the time variable is the maximum(days_to_last_known_alive, days_to_last_followup).  This pair of clinical parameters are called _EVENT and _TIME_TO_EVENT on the cancer browser. </p><p><strong>Recurrence Free Survival (RFS)</strong> The <em>event</em> call is derived from “<em>new_tumor_event_after_initi**al_treatment”</em> parameter. The <em>time_to_event</em> is in days, equals to max (days_to_new_tumor_event_after_initial_treatment, days_to_tumor_recurrence) if there is an event; in the case of no event, the time variable is time of overall survival. The pair of clinical parameters are called _RFS and _RFS_IND on the cancer browser. </p><p><strong>KM plot</strong></p><p>If there is OS data, the browser KM plot will display by default.  Users can use the KM plot advanced option to select other clinical variables, such _RFS and _RFS_IND to use for KM plot.</p><p>如果有OS数据，默认情况下将显示浏览器KM图。 用户可以使用KM plot advanced选项选择其他临床变量，例如_RFS和_RFS_IND用于KM图。</p><p><strong>Example: TCGA bladder cancer recurrent free survival KM plot</strong></p><p><a href="https://genome-cancer.ucsc.edu/proj/site/hgHeatmap/#?bookmark=090a0ed5cf614b35d1002c0ddeb044aa" target="_blank" rel="noopener">https://genome-cancer.ucsc.edu/proj/site/hgHeatmap/#?bookmark=090a0ed5cf614b35d1002c0ddeb044aa</a> and then <strong>click the KM button</strong></p><p><strong>Download OS or RFS data for survival statistical analysis</strong></p><p>You can download the OS and OS_IND and RFS and RFS_IND pair of data through clinical download, as well as the categorical clinical variable (e.g. PAM50 subtype) for survival analysis. The downloaded data is a text file, data is in the format that can be easily used by R (e.g. survdiff in the survival package) to derive p value. Please note to select “entire clinical cohort” option when download clinical data for survival analysis.</p><p>您可以通过下载临床数据以及用于生存分析的分类临床变量（例如PAM50亚型）下载OS和OS_IND以及RFS和RFS_IND数据对。 下载的数据是文本文件，数据的格式可以由R（例如生存包中的生存者）容易地使用以导出p值。 请注意在下载临床数据进行生存分析时选择“整个临床队列”选项。</p><p>参考<a href="https://groups.google.com/forum/#!topic/ucsc-cancer-genomics-browser/YvKnWZSsw1Q" target="_blank" rel="noopener">https://groups.google.com/forum/#!topic/ucsc-cancer-genomics-browser/YvKnWZSsw1Q</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>创建python虚拟环境</title>
+      <link href="/2019/08/18/python-venv/"/>
+      <url>/2019/08/18/python-venv/</url>
+      
+        <content type="html"><![CDATA[<p>virtualenv可创建一套“隔离”的Python运行环境，从而避免不同版本包的干扰。</p><a id="more"></a><h1 id="pip安装virtualenv"><a href="#pip安装virtualenv" class="headerlink" title="pip安装virtualenv"></a>pip安装virtualenv</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure><h1 id="创建独立python运行环境"><a href="#创建独立python运行环境" class="headerlink" title="创建独立python运行环境"></a>创建独立python运行环境</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建目录</span></span><br><span class="line">mkdir project_A</span><br><span class="line">cd project_A</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建独立的python运行环境</span></span><br><span class="line">virtualenv --no-site-packages venv</span><br></pre></td></tr></table></figure><h1 id="进入虚拟环境"><a href="#进入虚拟环境" class="headerlink" title="进入虚拟环境"></a>进入虚拟环境</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source venv/bin/activate</span><br></pre></td></tr></table></figure><h1 id="在虚拟环境下安装第三方包"><a href="#在虚拟环境下安装第三方包" class="headerlink" title="在虚拟环境下安装第三方包"></a>在虚拟环境下安装第三方包</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install numpy</span><br></pre></td></tr></table></figure><h1 id="关闭虚拟环境"><a href="#关闭虚拟环境" class="headerlink" title="关闭虚拟环境"></a>关闭虚拟环境</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> virtualenv </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>download_TCGA_from_GDC</title>
+      <link href="/2019/08/08/download-TCGA-from-GDC/"/>
+      <url>/2019/08/08/download-TCGA-from-GDC/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>设置仓库镜像和安装R包</title>
+      <link href="/2019/08/08/R-packages-installation/"/>
+      <url>/2019/08/08/R-packages-installation/</url>
+      
+        <content type="html"><![CDATA[<p>以安装生存分析包<code>survminer</code>为例，了解R包的一般安装流程。</p><a id="more"></a><h3 id="Set-repo-to-accelerate-downloading"><a href="#Set-repo-to-accelerate-downloading" class="headerlink" title="Set repo to accelerate downloading"></a>Set repo to accelerate downloading</h3><p>For CRAN:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">options(repos=structure(c(CRAN="https://mirrors.tuna.tsinghua.edu.cn/CRAN/")))</span><br></pre></td></tr></table></figure><p>For bioconductor:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">options(BioC_mirror="http://mirrors.ustc.edu.cn/bioc/")</span><br></pre></td></tr></table></figure><h3 id="Installation-and-loading"><a href="#Installation-and-loading" class="headerlink" title="Installation and loading"></a>Installation and loading</h3><p>Install from <a href="https://cran.r-project.org/package=survminer" target="_blank" rel="noopener">CRAN</a> as follow:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages("survminer")</span><br></pre></td></tr></table></figure><p>Install from bioconductor（因为<code>survminer</code>并不在bioconductor中，此处我随机找了别的包示例）:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) install.packages(&quot;BiocManager&quot;)</span><br><span class="line">if (!requireNamespace(&quot;ivygapSE&quot;, quietly = TRUE)) BiocManager::install(&quot;ivygapSE&quot;)</span><br></pre></td></tr></table></figure><p>Or, install the latest version from <a href="https://github.com/kassambara/survminer" target="_blank" rel="noopener">GitHub</a>:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if(!require(devtools)) install.packages("devtools")</span><br><span class="line">devtools::install_github("kassambara/survminer", build_vignettes = FALSE)</span><br></pre></td></tr></table></figure><p>Load survminer:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library("survminer")</span><br></pre></td></tr></table></figure><h3 id="其他R包相关操作："><a href="#其他R包相关操作：" class="headerlink" title="其他R包相关操作："></a>其他R包相关操作：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前镜像地址</span></span><br><span class="line">getOption(<span class="string">"repos"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看R_HOME地址</span></span><br><span class="line">R.home()</span><br><span class="line"></span><br><span class="line">R_HOME/doc/CRAN_mirrors.csv</span><br><span class="line">R_HOME/doc/BioC_mirrors.csv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看R包安装位置</span></span><br><span class="line">.libPaths()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看已安装的包</span></span><br><span class="line">installed.packages()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看包版本</span></span><br><span class="line">packageVersion(<span class="string">"package_name"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">update.packages(<span class="string">"package_name"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载包</span></span><br><span class="line">library(<span class="string">"package_name"</span>)</span><br><span class="line">require(<span class="string">"package_name"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看加载的包</span></span><br><span class="line">.packages()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移除已加载的包（将包从R运行环境中移除）</span></span><br><span class="line">detach(<span class="string">"package_name"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 彻底删除已安装的包：</span></span><br><span class="line">remove.packages(<span class="string">"package_name"</span>, lib = file.path(<span class="string">"path/to/library"</span>))</span><br></pre></td></tr></table></figure><h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ul><li><a href="https://www.jianshu.com/p/9e503a4e3563?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation" target="_blank" rel="noopener">https://www.jianshu.com/p/9e503a4e3563?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> R语言 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> R </tag>
+            
+            <tag> installation </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>git基础代码</title>
+      <link href="/2019/08/06/git%E5%9F%BA%E7%A1%80/"/>
+      <url>/2019/08/06/git%E5%9F%BA%E7%A1%80/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a><h1 id="Git基础"><a href="#Git基础" class="headerlink" title="Git基础"></a>Git基础</h1><h2 id="查看文件版本库中的文件状态："><a href="#查看文件版本库中的文件状态：" class="headerlink" title="查看文件版本库中的文件状态："></a>查看文件版本库中的文件状态：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure><p>文件处于未修改状态</p><h2 id="修改文件，再次查看版本库中文件的状态"><a href="#修改文件，再次查看版本库中文件的状态" class="headerlink" title="修改文件，再次查看版本库中文件的状态"></a>修改文件，再次查看版本库中文件的状态</h2><p>对比文件修改前和修改后的变化：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure><p>根据提示，我们能看到，文本的修改为添加了一行，即文字开头有加号的地方。如果删除一行，文字开头为减号。 </p><h2 id="提交修改内容与提交新文件"><a href="#提交修改内容与提交新文件" class="headerlink" title="提交修改内容与提交新文件"></a>提交修改内容与提交新文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add 文件名</span><br><span class="line">git commit -m "add a line"</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="再次查看"><a href="#再次查看" class="headerlink" title="再次查看"></a>再次查看</h2><p>提交后，再次查看版本库当前状态，会看到文件没有需要提交的更改。 </p><h2 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h2><p>有时提交完成后发现漏掉几个文件没有添加，或者信息写错了，这时候就需要对操作进行撤销。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## 例子</span></span></span><br><span class="line">git commit -m 'xxxxx'</span><br><span class="line">git add file</span><br><span class="line">git commit --amend</span><br></pre></td></tr></table></figure><ul><li>撤销对文件的修改 </li></ul><p>如果不想保留对某一个文件的修改，则可以使用<code>git checkout -- filename</code>来撤销对文件的修改。但是这个命令只是拷贝了另一个文件来覆盖它，文件的所有更改都将消失。</p><p>来源：<a href="https://blog.csdn.net/yidu_fanchen/article/details/78663359" target="_blank" rel="noopener">https://blog.csdn.net/yidu_fanchen/article/details/78663359</a></p><hr><h1 id="git-高级内容"><a href="#git-高级内容" class="headerlink" title="git 高级内容"></a>git 高级内容</h1><ul><li><a href="https://laozhu.me/post/git-submodule-tutorial/" target="_blank" rel="noopener">https://laozhu.me/post/git-submodule-tutorial/</a></li><li>阮一峰的博客 <a href="https://www.bookstack.cn/read/git-tutorial/README.md" target="_blank" rel="noopener">https://www.bookstack.cn/read/git-tutorial/README.md</a></li></ul><h2 id="从mac拷贝到windows10上"><a href="#从mac拷贝到windows10上" class="headerlink" title="从mac拷贝到windows10上"></a>从mac拷贝到windows10上</h2><p>进入目录后，需要执行以下命令，否则会出错：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email "your@example.com"</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hexo部署到github</title>
+      <link href="/2019/08/06/%E9%83%A8%E7%BD%B2/"/>
+      <url>/2019/08/06/%E9%83%A8%E7%BD%B2/</url>
+      
+        <content type="html"><![CDATA[<p>本博客使用了主题hiker，考虑长期维护的需要，本日志记录了一些可能用到的参考信息：</p><a id="more"></a><h3 id="建站-部署"><a href="#建站-部署" class="headerlink" title="建站+部署"></a>建站+部署</h3><ul><li><a href="https://lijiankun24.com/Mac下Hexo和GitHub-Pages搭建个人博客1/" target="_blank" rel="noopener">Mac 下 Hexo 和 GitHub-Pages 搭建个人博客</a></li><li><a href="http://gonghonglou.com/2016/02/03/firstblog/" target="_blank" rel="noopener">http://gonghonglou.com/2016/02/03/firstblog/</a></li></ul><h3 id="主题维护"><a href="#主题维护" class="headerlink" title="主题维护"></a>主题维护</h3><ul><li><a href="https://gitter.im/hexo-theme-hiker/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link" target="_blank" rel="noopener">hiker在线交流群</a></li><li><a href="https://github.com/iTimeTraveler/hexo-theme-hiker/blob/master/README.cn.md" target="_blank" rel="noopener">主题地址</a></li><li><a href="https://lhy0609.github.io/2017/08/11/Hexo-hiker主题配置与美化/" target="_blank" rel="noopener">Hexo+hiker主题配置与美化</a></li><li><a href="https://aojueliuyun.github.io/2018/06/29/2018.6.29--change-hexo-theme/" target="_blank" rel="noopener">换了新主题hiker</a></li></ul><h3 id="添加备案号"><a href="#添加备案号" class="headerlink" title="添加备案号"></a>添加备案号</h3><ul><li><a href="https://github.com/iTimeTraveler/hexo-theme-hiker/issues/74" target="_blank" rel="noopener">https://github.com/iTimeTraveler/hexo-theme-hiker/issues/74</a></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+            <tag> hexo </tag>
+            
+            <tag> deploy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>两种方法构建signatures（一）</title>
+      <link href="/2019/08/06/mutational%20signatures%E7%9A%84%E6%9E%84%E5%BB%BA/"/>
+      <url>/2019/08/06/mutational%20signatures%E7%9A%84%E6%9E%84%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<p>MutationalPatterns中进行因式分解用到了R包NMF。<br>确定因式分解的秩至关重要，要避免过度分解和分解不全的情况。<br>nmfEstimateRank函数帮助确定最佳的秩。</p><p>Function nmfEstimateRank helps in choosing an optimal rank by implementing simple approaches proposed in the literature.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Cancer genome </category>
+          
+          <category> Mutational Signatures </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Mutational Signatures </tag>
+            
+            <tag> tumor </tag>
+            
+            <tag> NMF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
