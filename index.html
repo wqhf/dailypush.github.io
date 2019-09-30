@@ -245,11 +245,19 @@
                 
               
 
-              <time title="创建时间：2019-09-29 16:51:33 / 修改时间：17:35:57" itemprop="dateCreated datePublished" datetime="2019-09-29T16:51:33+08:00">2019-09-29</time>
+              <time title="创建时间：2019-09-29 16:51:33" itemprop="dateCreated datePublished" datetime="2019-09-29T16:51:33+08:00">2019-09-29</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-30 08:56:37" itemprop="dateModified" datetime="2019-09-30T08:56:37+08:00">2019-09-30</time>
+              </span>
             
           
 
@@ -266,7 +274,7 @@
       
           <a id="more"></a><p>来源：<a href="http://blog.genesino.com/collections/R_tips/" target="_blank" rel="noopener">http://blog.genesino.com/collections/R_tips/</a></p><h4 id="记录无法归类的小问题及解决方法"><a href="#记录无法归类的小问题及解决方法" class="headerlink" title="记录无法归类的小问题及解决方法"></a>记录无法归类的小问题及解决方法</h4><h5 id="查看R函数代码"><a href="#查看R函数代码" class="headerlink" title="查看R函数代码"></a>查看R函数代码</h5><ul>
 <li><p>如果是R的内部函数，直接输入函数名字，即可查看函数的代码</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&gt; colMeans</span><br><span class="line"><span class="keyword">function</span> (x, na.rm = <span class="literal">FALSE</span>, dims = <span class="number">1L</span>) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (is.data.frame(x)) </span><br><span class="line">        x &lt;- as.matrix(x)</span><br><span class="line">    <span class="keyword">if</span> (!is.array(x) || length(dn &lt;- dim(x)) &lt; <span class="number">2L</span>) </span><br><span class="line">        <span class="keyword">stop</span>(<span class="string">"'x' must be an array of at least two dimensions"</span>)</span><br><span class="line">    <span class="keyword">if</span> (dims &lt; <span class="number">1L</span> || dims &gt; length(dn) - <span class="number">1L</span>) </span><br><span class="line">        <span class="keyword">stop</span>(<span class="string">"invalid 'dims'"</span>)</span><br><span class="line">    n &lt;- prod(dn[id &lt;- seq_len(dims)])</span><br><span class="line">    dn &lt;- dn[-id]</span><br><span class="line">    z &lt;- <span class="keyword">if</span> (is.complex(x)) </span><br><span class="line">        .Internal(colMeans(Re(x), n, prod(dn), na.rm)) + (<span class="number">0</span>+<span class="number">1i</span>) * </span><br><span class="line">            .Internal(colMeans(Im(x), n, prod(dn), na.rm))</span><br><span class="line">    <span class="keyword">else</span> .Internal(colMeans(x, n, prod(dn), na.rm))</span><br><span class="line">    <span class="keyword">if</span> (length(dn) &gt; <span class="number">1L</span>) &#123;</span><br><span class="line">        dim(z) &lt;- dn</span><br><span class="line">        dimnames(z) &lt;- dimnames(x)[-id]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> names(z) &lt;- dimnames(x)[[dims + <span class="number">1L</span>]]</span><br><span class="line">    z</span><br><span class="line">&#125;</span><br><span class="line">&lt;bytecode: <span class="number">0x2122250</span>&gt;</span><br><span class="line">&lt;environment: namespace:base&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&gt; colMeans</span><br><span class="line"><span class="keyword">function</span> (x, na.rm = <span class="literal">FALSE</span>, dims = <span class="number">1L</span>) </span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">if</span> (is.data.frame(x)) </span><br><span class="line">    x &lt;- as.matrix(x)</span><br><span class="line">  <span class="keyword">if</span> (!is.array(x) || length(dn &lt;- dim(x)) &lt; <span class="number">2L</span>) </span><br><span class="line">    <span class="keyword">stop</span>(<span class="string">"'x' must be an array of at least two dimensions"</span>)</span><br><span class="line">  <span class="keyword">if</span> (dims &lt; <span class="number">1L</span> || dims &gt; length(dn) - <span class="number">1L</span>) </span><br><span class="line">    <span class="keyword">stop</span>(<span class="string">"invalid 'dims'"</span>)</span><br><span class="line">  n &lt;- prod(dn[id &lt;- seq_len(dims)])</span><br><span class="line">  dn &lt;- dn[-id]</span><br><span class="line">  z &lt;- <span class="keyword">if</span> (is.complex(x)) </span><br><span class="line">    .Internal(colMeans(Re(x), n, prod(dn), na.rm)) + (<span class="number">0</span>+<span class="number">1i</span>) * </span><br><span class="line">  .Internal(colMeans(Im(x), n, prod(dn), na.rm))</span><br><span class="line">  <span class="keyword">else</span> .Internal(colMeans(x, n, prod(dn), na.rm))</span><br><span class="line">  <span class="keyword">if</span> (length(dn) &gt; <span class="number">1L</span>) &#123;</span><br><span class="line">    dim(z) &lt;- dn</span><br><span class="line">    dimnames(z) &lt;- dimnames(x)[-id]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> names(z) &lt;- dimnames(x)[[dims + <span class="number">1L</span>]]</span><br><span class="line">  z</span><br><span class="line">&#125;</span><br><span class="line">&lt;bytecode: <span class="number">0x2122250</span>&gt;</span><br><span class="line">&lt;environment: namespace:base&gt;</span><br></pre></td></tr></table></figure>
 
 
 </li>
@@ -332,7 +340,7 @@
                 
               
 
-              <time title="创建时间：2019-09-29 14:06:01 / 修改时间：14:37:30" itemprop="dateCreated datePublished" datetime="2019-09-29T14:06:01+08:00">2019-09-29</time>
+              <time title="创建时间：2019-09-29 14:06:01 / 修改时间：21:53:03" itemprop="dateCreated datePublished" datetime="2019-09-29T14:06:01+08:00">2019-09-29</time>
             </span>
           
             
@@ -363,12 +371,11 @@
 </ul><h4 id="绘图用："><a href="#绘图用：" class="headerlink" title="绘图用："></a>绘图用：</h4><h5 id="python绘图："><a href="#python绘图：" class="headerlink" title="python绘图："></a>python绘图：</h5><ul>
 <li><a href="https://zhuanlan.zhihu.com/p/53308606" target="_blank" rel="noopener">Matplotlib 可视化的 50 个图表</a></li>
 </ul><h5 id="R绘图："><a href="#R绘图：" class="headerlink" title="R绘图："></a>R绘图：</h5><ul>
-<li><p><a href="https://zhuanlan.zhihu.com/p/34514379" target="_blank" rel="noopener">ggplot2(一)‖基本概念</a></p>
-</li>
-<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzI5MTcwNjA4NQ==&mid=2247486262&idx=1&sn=d38221a4063d866b1f10f4c9ebab5f88&chksm=ec0dcebcdb7a47aa03ff27872048304d33be27d1ab8bd3af0aefc320366a4bd3aceb943cb384&scene=21#wechat_redirect" target="_blank" rel="noopener">ggplot2高效实用指南 (可视化脚本、工具、套路、配色)</a></p>
-</li>
-<li><p><a href="https://mp.weixin.qq.com/s/W2nKMe4u2VLBswFkvhoXDw" target="_blank" rel="noopener">图片的组合与拼接</a></p>
-</li>
+<li><a href="https://zhuanlan.zhihu.com/p/34514379" target="_blank" rel="noopener">ggplot2(一)‖基本概念</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI5MTcwNjA4NQ==&mid=2247486262&idx=1&sn=d38221a4063d866b1f10f4c9ebab5f88&chksm=ec0dcebcdb7a47aa03ff27872048304d33be27d1ab8bd3af0aefc320366a4bd3aceb943cb384&scene=21#wechat_redirect" target="_blank" rel="noopener">ggplot2高效实用指南 (可视化脚本、工具、套路、配色)</a></li>
+<li><a href="https://mp.weixin.qq.com/s/W2nKMe4u2VLBswFkvhoXDw" target="_blank" rel="noopener">图片的组合与拼接</a></li>
+<li><a href="https://mp.weixin.qq.com/s/yVAP09kfE0af79egYENBRA?" target="_blank" rel="noopener">ggplot2字体设置</a></li>
+<li><a href="https://mp.weixin.qq.com/s/8kqTVSDjuHpivGaim6ukNg" target="_blank" rel="noopener">主成分分析图层、置信区间</a></li>
 </ul>
           <!--noindex-->
           
