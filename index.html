@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-02 12:17:46" itemprop="dateModified" datetime="2019-10-02T12:17:46+08:00">2019-10-02</time>
+                <time title="修改时间：2019-10-02 19:57:50" itemprop="dateModified" datetime="2019-10-02T19:57:50+08:00">2019-10-02</time>
               </span>
             
           
@@ -272,14 +272,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <a id="more"></a><p>来源：<a href="http://blog.genesino.com/collections/R_tips/" target="_blank" rel="noopener">http://blog.genesino.com/collections/R_tips/</a></p><h4 id="记录无法归类的小问题及解决方法"><a href="#记录无法归类的小问题及解决方法" class="headerlink" title="记录无法归类的小问题及解决方法"></a>记录无法归类的小问题及解决方法</h4><h5 id="查看R函数代码"><a href="#查看R函数代码" class="headerlink" title="查看R函数代码"></a>查看R函数代码</h5><ul>
-<li><p>循环读取文件</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 方法一 list.files </span></span><br><span class="line">list.files(pattern = <span class="string">"*.transcript.SAM"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 方法二 Sys.glob</span></span><br><span class="line"><span class="keyword">require</span>(data.table)</span><br><span class="line">datafiles&lt;-lapply(Sys.glob(<span class="string">"*.transcript.SAM"</span>),fread)</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
+          <a id="more"></a><p>来源：<a href="http://blog.genesino.com/collections/R_tips/" target="_blank" rel="noopener">http://blog.genesino.com/collections/R_tips/</a></p><h4 id="记录无法归类的小问题及解决方法"><a href="#记录无法归类的小问题及解决方法" class="headerlink" title="记录无法归类的小问题及解决方法"></a>记录无法归类的小问题及解决方法</h4><h5 id="factor"><a href="#factor" class="headerlink" title="factor"></a>factor</h5><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">factor(x = character(), levels, labels = levels,</span><br><span class="line">       exclude = <span class="literal">NA</span>, ordered = is.ordered(x), nmax = <span class="literal">NA</span>)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -341,11 +334,19 @@
                 
               
 
-              <time title="创建时间：2019-09-29 14:06:01 / 修改时间：21:53:03" itemprop="dateCreated datePublished" datetime="2019-09-29T14:06:01+08:00">2019-09-29</time>
+              <time title="创建时间：2019-09-29 14:06:01" itemprop="dateCreated datePublished" datetime="2019-09-29T14:06:01+08:00">2019-09-29</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-02 17:05:54" itemprop="dateModified" datetime="2019-10-02T17:05:54+08:00">2019-10-02</time>
+              </span>
             
           
 
@@ -377,6 +378,7 @@
 <li><a href="https://mp.weixin.qq.com/s/W2nKMe4u2VLBswFkvhoXDw" target="_blank" rel="noopener">图片的组合与拼接</a></li>
 <li><a href="https://mp.weixin.qq.com/s/yVAP09kfE0af79egYENBRA?" target="_blank" rel="noopener">ggplot2字体设置</a></li>
 <li><a href="https://mp.weixin.qq.com/s/8kqTVSDjuHpivGaim6ukNg" target="_blank" rel="noopener">主成分分析图层、置信区间</a></li>
+<li><a href="https://mp.weixin.qq.com/s/o-QCPIBxQnAKs9B4Hvw8Dw" target="_blank" rel="noopener">深入绘制热图</a></li>
 </ul>
           <!--noindex-->
           
